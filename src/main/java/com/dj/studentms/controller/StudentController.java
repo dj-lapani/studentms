@@ -2,6 +2,7 @@ package com.dj.studentms.controller;
 
 import com.dj.studentms.model.Student;
 import com.dj.studentms.service.StudentService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -64,6 +65,14 @@ public class StudentController {
             return new ResponseEntity<>(savedStudent, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @Value("${server.instance.id}")
+    String instanceId;
+
+    @GetMapping("/hello")
+    public String hello() {
+        return String.format("Hello from instance %s", instanceId);
     }
 }
 
