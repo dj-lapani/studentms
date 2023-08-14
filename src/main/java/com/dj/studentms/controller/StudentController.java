@@ -67,12 +67,12 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @Value("${server.instance.id}")
-    String instanceId;
+    /*@Value("${server.instance.id}")
+    String instanceId;*/
 
     @GetMapping("/hello")
     public String hello() {
-        return String.format("Hello from instance %s", instanceId);
+        return String.format("Hello from instance %s", 1);
     }
 }
 
